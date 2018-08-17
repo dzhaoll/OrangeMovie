@@ -1,0 +1,240 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Single</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Movie_store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="/static/single-css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="/static/single-css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- start plugins -->
+<script type="text/javascript" src="/static/single-js/jquery-1.11.1.min.js"></script>
+<link href='http://fonts.useso.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div class="container">
+	<div class="container_wrap">
+		<div class="header_top">
+		    <div class="col-sm-3 logo"><a href="index.html"><img src="/static/single-images/logo.png" alt=""/></a></div>
+		    <div class="col-sm-6 nav">
+			  <ul>
+				 <li> <span class="simptip-position-bottom simptip-movable" data-tooltip="comic"><a href="movie.html"> </a></span></li>
+				 <li><span class="simptip-position-bottom simptip-movable" data-tooltip="movie"><a href="movie.html"> </a> </span></li>
+				 <li><span class="simptip-position-bottom simptip-movable" data-tooltip="video"><a href="movie.html"> </a></span></li>
+				 <li><span class="simptip-position-bottom simptip-movable" data-tooltip="game"><a href="movie.html"> </a></span></li>
+				 <li><span class="simptip-position-bottom simptip-movable" data-tooltip="tv"><a href="movie.html"> </a></span></li>
+				 <li><span class="simptip-position-bottom simptip-movable" data-tooltip="more"><a href="movie.html"> </a></span></li>
+			 </ul>
+			</div>
+			<div class="col-sm-3 header_right">
+			   <ul class="header_right_box">
+				 <li><img src="/static/single-images/p1.png" alt=""/></li>
+				 <li><p><a href="{% url 'login' %}">{{ username }}</a></p></li>
+				 <li class="last"><i class="edit"> </i></li>
+				 <div class="clearfix"> </div>
+			   </ul>
+			</div>
+			<div class="clearfix"> </div>
+	      </div>
+	   <div class="content">
+      	   <div class="movie_top">
+      	         <div class="col-md-9 movie_box">
+                        <div class="grid images_3_of_2">
+                        	<div class="movie_image">
+                                <span class="movie_rating">{{ grade }}</span>
+                                <img src="{{ movie.picture }}" class="img-responsive" alt=""/>
+                            </div>
+{#                            <div class="movie_rate">#}
+{#                            	<div class="rating_desc"><p>Your Vote :</p></div>#}
+{#                            	<form action="{{ movie.get_movie_url }}" class="sky-form">#}
+{#                                    {% csrf_token %}#}
+{#							     <fieldset>					#}
+{#								   <section>#}
+{#								     <div class="rating">#}
+{#                                         <input type="submit" value="GO">#}
+{#										<input type="radio" name="stars-rating" id="stars-rating-5" value="1">#}
+{#										<label for="stars-rating-5"><i class="icon-star"></i></label>#}
+{#										<input type="radio" name="stars-rating" id="stars-rating-4" value="2">#}
+{#										<label for="stars-rating-4"><i class="icon-star"></i></label>#}
+{#										<input type="radio" name="stars-rating" id="stars-rating-3" value="3">#}
+{#										<label for="stars-rating-3"><i class="icon-star"></i></label>#}
+{#										<input type="radio" name="stars-rating" id="stars-rating-2" value="4">#}
+{#										<label for="stars-rating-2"><i class="icon-star"></i></label>#}
+{#										<input type="radio" name="stars-rating" id="stars-rating-1" value="5">#}
+{#										<label for="stars-rating-1"><i class="icon-star"></i></label>#}
+{#									 </div>#}
+{#								  </section>#}
+{#							    </fieldset>#}
+{#						  	   </form>#}
+{#						  	   <div class="clearfix"> </div>#}
+{#                            </div>#}
+                        </div>
+                        <div class="desc1 span_3_of_2">
+                        	<p class="movie_option">
+                        		<strong>国家/地区: </strong>
+                        		{{movie.country}}
+                        	</p>
+                        	<p class="movie_option">
+                        		<strong>上映日期: </strong>
+                        		{{movie.date}}
+                        	</p>
+                        	<p class="movie_option">
+                        		<strong>类型: </strong>
+                        		{{movie.mtype}}
+                        	</p>
+                        	<p class="movie_option">
+                        		<strong>语言: </strong>
+                        		{{movie.language}}
+                        	</p>
+                        	<p class="movie_option">
+                        		<strong>导演: </strong>
+                        		{{movie.director}}
+                        	</p>
+                        	<p class="movie_option">
+                        		<strong>主演: </strong>
+                        		{{movie.actor}}
+                        	</p>
+                            <p class="movie_option">
+                            	<strong>编剧: </strong>
+                            	{{movie.scriptwriter}}
+                            </p>
+                         </div>
+                        <div class="clearfix"> </div>
+                        <p class="m_4">
+                        	{{movie.introduction}}
+                        </p>
+		                <form method="post" action="/comment-post/{{ movie.id }}">
+                            {% csrf_token %}
+							<div class="text">
+			                   <textarea name="user_comment" value="Message:" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message:</textarea>
+			                </div>
+			                <div class="form-submit1">
+					           <input name="submit" type="submit" id="submit" value="Submit Your Message"><br>
+					        </div>
+							<div class="clearfix"></div>
+                 		</form>
+		                <div class="single">
+		                <h1>Comments</h1>
+		                <ul class="single_list">
+                            {% for comment in comments %}
+                            <li>
+					            <div class="preview"><a href="#"><img src="/static/single-images/2.jpg" class="img-responsive" alt=""></a></div>
+					            <div class="data">
+					                <div class="title">{{ comment.user.uname }}  /  {{ comment.com_time }}
+					                <p>{{ comment.content }} <br><br></p>
+					            </div>
+					            <div class="clearfix"></div>
+					        </li>
+                            {% endfor %}
+			  			</ul>
+                      </div>
+                 </div>
+                 <div class="col-md-3">
+                     {% for movie in items %}
+                         <div class="movie_img">
+                             <div class="grid_2">
+                                <img src="{{ movie.picture }}" class="img-responsive" alt="">
+                                <div class="caption1">
+                                        <ul class="list_5 list_7">
+                                            <li><i class="icon5"> </i><p></p></li>
+                                        </ul>
+                                        <i class="icon4 icon6 icon7"> </i>
+                                        <p class="m_3">{{ movie.title }}</p>
+                                </div>
+                             </div>
+                         </div>
+                     {% endfor %}
+{#                     <div class="movie_img">#}
+{#                         <div class="grid_2">#}
+{#							<img src="/static/single-images/pic6.jpg" class="img-responsive" alt="">#}
+{#							<div class="caption1">#}
+{#									<ul class="list_5 list_7">#}
+{#							    		<li><i class="icon5"> </i><p>3,548</p></li>#}
+{#							    	</ul>#}
+{#							    	<i class="icon4 icon6 icon7"> </i>#}
+{#							    	<p class="m_3">Guardians of the Galaxy</p>#}
+{#							</div>#}
+{#                         </div>#}
+{#                     </div>#}
+{#                     <div class="grid_2 col_1">#}
+{#							<img src="/static/single-images/pic2.jpg" class="img-responsive" alt="">#}
+{#							<div class="caption1">#}
+{#								<ul class="list_3 list_7">#}
+{#						    		<li><i class="icon5"> </i><p>3,548</p></li>#}
+{#						    	</ul>#}
+{#						    	<i class="icon4 icon7"> </i>#}
+{#						    	<p class="m_3">Guardians of the Galaxy</p>#}
+{#							</div>#}
+{#						   </div>#}
+{#                     <div class="grid_2 col_1">#}
+{#                         <img src="/static/single-images/pic9.jpg" class="img-responsive" alt="">#}
+{#                         <div class="caption1">#}
+{#								<ul class="list_3 list_7">#}
+{#						    		<li><i class="icon5"> </i><p>3,548</p></li>#}
+{#						    	</ul>#}
+{#						    	<i class="icon4 icon7"> </i>#}
+{#						    	<p class="m_3">Guardians of the Galaxy</p>#}
+{#							</div>#}
+{#                     </div>#}
+                 </div>
+                 <div class="clearfix"> </div>
+           </div>
+       </div>
+    </div>
+</div>
+<div class="container"> 
+ <footer id="footer">
+ 	<div id="footer-3d">
+		<div class="gp-container">
+			<span class="first-widget-bend"> </span>
+		</div>		
+	</div>
+    <div id="footer-widgets" class="gp-footer-larger-first-col">
+		<div class="gp-container">
+            <div class="footer-widget footer-1">
+            	<div class="wpb_wrapper">
+					<img src="/static/single-images/f_logo.png" alt=""/>
+				</div> 
+	          <br>
+	          <p>It is a long established fact that a reader will be distracted by the readable content of a page.</p>
+			  <p class="text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered.</p>
+			 </div>
+			 <div class="footer_box">
+			  <div class="col_1_of_3 span_1_of_3">
+					<h3>Categories</h3>
+					<ul class="first">
+						<li><a href="#">Dance</a></li>
+						<li><a href="#">History</a></li>
+						<li><a href="#">Specials</a></li>
+					</ul>
+		     </div>
+		     <div class="col_1_of_3 span_1_of_3">
+					<h3>Information</h3>
+					<ul class="first">
+						<li><a href="#">New products</a></li>
+						<li><a href="#">top sellers</a></li>
+						<li><a href="#">Specials</a></li>
+					</ul>
+		     </div>
+		     <div class="col_1_of_3 span_1_of_3">
+					<h3>Follow Us</h3>
+					<ul class="first">
+						<li><a href="#">Facebook</a></li>
+						<li><a href="#">Twitter</a></li>
+						<li><a href="#">Youtube</a></li>
+					</ul>
+					<div class="copy">
+				      <p>Copyright &copy; 2015.Company name All rights reserved.<a target="_blank" href="http://www.cssmoban.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a></p>
+			        </div>
+		     </div>
+		    <div class="clearfix"> </div>
+	        </div>
+	        <div class="clearfix"> </div>
+		</div>
+	</div>
+  </footer>
+</div>		
+</body>
+</html>
